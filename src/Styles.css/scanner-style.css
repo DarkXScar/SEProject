@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,400,700");
+
+.App {
+	font-family: sans-serif;
+	text-align: center;
+	font-family: "Roboto", sans-serif;
+}
+
+.min-width {
+	min-width: fit-content;
+}
