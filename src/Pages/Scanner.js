@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import Zxing from "../Components/Zxing";
-import AddStudent from "../Components/AddStudent";
+import AddButton from "../Components/AddButton";
 import PopUp from "../Components/PopUp";
 
 const Scanner = () => {
@@ -13,12 +13,12 @@ const Scanner = () => {
 						<Row>
 							<Col>
 								<div className='w-10 justify-content-end d-flex'>
-									<AddStudent item={"Add"} />
+									<AddButton item={"Add"} />
 								</div>
 							</Col>
 							<Col>
 								<div className='w-10 justify-content-end d-flex'>
-									<AddStudent item={"Done"} />
+									<AddButton item={"Done"} />
 								</div>
 							</Col>
 						</Row>

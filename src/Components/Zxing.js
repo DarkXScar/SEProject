@@ -1,4 +1,4 @@
-import "../Styles.css/scanner-style.css";
+import "../Styles/scanner-style.css";
 import { BrowserMultiFormatReader, BarcodeFormat } from "@zxing/browser";
 import DecodeHintType from "@zxing/library/cjs/core/DecodeHintType";
 import { useEffect, useRef } from "react";

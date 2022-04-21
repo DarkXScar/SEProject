@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
-const addStudent = ({ item }) => {
+const AddButton = ({ item }) => {
 	return (
 		<>
 			<Button variant='primary'> {item} </Button>
@@ -9,4 +9,4 @@ const addStudent = ({ item }) => {
 	);
 };
 
-export default addStudent;
+export default AddButton;
