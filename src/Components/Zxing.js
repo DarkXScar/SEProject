@@ -4,8 +4,8 @@ import DecodeHintType from "@zxing/library/cjs/core/DecodeHintType";
 import { useEffect, useRef } from "react";
 import { Container } from "react-bootstrap";
 import useWindowDimensions from "./useWindowDimensions";
-import PopUp from "./PopUp";
-import { useState } from "react";
+// import PopUp from "./PopUp";
+// import { useState } from "react";
 
 const Zxing = () => {
 	const video = useRef();
