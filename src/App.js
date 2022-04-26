@@ -1,4 +1,4 @@
-import Scanner from "./Pages/Scanner";
+import Scanner from "./Scanner/Scanner";
 
 function App() {
 	return (
