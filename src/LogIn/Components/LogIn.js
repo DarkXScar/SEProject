@@ -1,4 +1,4 @@
-import "../Styles/login-style.css";
+import "../login-style.css";
 import user from "../Images/user.png";
 import email from "../Images/email.png";
 import unlock from "../Images/unlock.png";

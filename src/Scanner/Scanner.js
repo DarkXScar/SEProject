@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
-import Zxing from "../Components/Zxing";
-import AddButton from "../Components/AddButton";
-import PopUp from "../Components/PopUp";
+import Zxing from "./Components/Zxing";
+import AddButton from "./Components/AddButton";
+import PopUp from "./Components/PopUp";
 
 const Scanner = () => {
 	return (
