@@ -1,4 +1,7 @@
+//Bootstrap comonponents
 import { Container, Row, Col } from "react-bootstrap";
+
+//Components
 import Zxing from "./Components/Zxing";
 import AddButton from "./Components/AddButton";
 import PopUp from "./Components/PopUp";
