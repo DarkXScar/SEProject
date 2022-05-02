@@ -41,7 +41,7 @@ app.post("/login", (req, res) => {
 //Added confirmation message
 var port = 3001;
 app.get("/", function (request, response, next) {
-  response.send("Server is running properly on port " + port);
+  response.send("Running on port " + port);
 });
 
 app.listen(port, () => {
