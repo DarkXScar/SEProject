@@ -37,6 +37,13 @@ app.post("/login", (req, res) => {
   );
 });
 
-app.listen(3001, () => {
+//Da se zna da sam nesto uradio
+//Added confirmation message
+var port = 3001;
+app.get("/", function (request, response, next) {
+  response.send("Server is running properly on port " + port);
+});
+
+app.listen(port, () => {
   console.log("Running on port 3001");
 });
