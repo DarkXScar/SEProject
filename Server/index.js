@@ -45,5 +45,5 @@ app.get("/", function (request, response, next) {
 });
 
 app.listen(port, () => {
-  console.log("Running on port 3001");
+  console.log("Running on port" + port);
 });
