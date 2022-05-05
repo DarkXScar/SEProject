@@ -21,6 +21,7 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true })); //generic form for activating body-parser
 
+let ProfName = "";
 app.post("/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
@@ -31,8 +32,25 @@ app.post("/login", (req, res) => {
     (err, result) => {
       if (err) res.send({ err: err });
 
-      if (result.length > 0) res.send(result);
-      else res.send({ message: "Wrong username/password combination!" });
+      if (result.length > 0) {
+        res.send(result);
+        ProfName = result[0].ProfessorName;
+      } else res.send({ message: "Wrong username/password combination!" });
+    }
+  );
+});
+
+app.post("/accordion", (req, res) => {
+  let courses = req.body.courses;
+  db.query(
+    "SELECT * FROM courses WHERE CourseProfessor = ?",
+    [ProfName],
+    (err, result) => {
+      if (err) console.log(err);
+
+      if (result.length > 0) {
+        res.send(result);
+      } else console.log("Ne");
     }
   );
 });
