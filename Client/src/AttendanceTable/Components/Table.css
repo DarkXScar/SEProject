@@ -1,0 +1,26 @@
+.App {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+table {
+	border: solid white;
+	width: 800px;
+	height: 200px;
+}
+th {
+	text-align: left;
+	padding: 8px;
+	background-color: #f26844;
+	color: whitesmoke;
+}
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+td {
+	text-align: left;
+	padding: 8px;
+}
