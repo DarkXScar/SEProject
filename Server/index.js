@@ -123,3 +123,17 @@ function checkAndStore(inputID) {
     }
   );
 }
+
+function showAllStatus(weekCount) {
+  weekNum = "Week" + weekCount;
+  db.query(
+    "SELECT StudentName, ?? FROM attrec",
+    [weekNum],
+    function (err, result, fields) {
+      if (err) throw err;
+      console.log(result);
+    }
+  );
+}
+
+showAllStatus(1);
