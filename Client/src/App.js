@@ -5,7 +5,7 @@ import Accordion from "./CourseList/Components/Accordion";
 function App() {
   return (
     <>
-      <Scanner />
+      <LogIn />
     </>
   );
 }

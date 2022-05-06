@@ -18,7 +18,7 @@ const Accordion = () => {
     Axios.post("http://localhost:3001/accordion", {
       courses: data,
     }).then((response) => {
-      if (response) {
+      if (response.data) {
         setCourses(response.data);
       } else {
         console.log("Not working");
