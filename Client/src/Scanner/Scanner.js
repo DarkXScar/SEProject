@@ -12,20 +12,11 @@ const Scanner = () => {
 			<Container>
 				<Row>
 					<Zxing />
-					<Container className='w-50'>
-						<Row>
-							<Col>
-								<div className='w-10 justify-content-end d-flex'>
-									<AddButton item={"Add"} />
-								</div>
-							</Col>
-							<Col>
-								<div className='w-10 justify-content-end d-flex'>
-									<AddButton item={"Done"} />
-								</div>
-							</Col>
-						</Row>
-					</Container>
+				</Row>
+				<Row>
+					<div className='w-5 d-flex justify-content-center'>
+						<AddButton item={"Add"} />
+					</div>
 				</Row>
 			</Container>
 		</>
