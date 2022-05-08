@@ -3,8 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 //Components
 import Zxing from "./Components/Zxing";
-import AddButton from "./Components/AddButton";
-import PopUp from "./Components/PopUp";
+import ManualAdd from "./Components/ManualAdd";
 
 const Scanner = () => {
 	return (
@@ -15,7 +14,7 @@ const Scanner = () => {
 				</Row>
 				<Row>
 					<div className='w-5 d-flex justify-content-center'>
-						<AddButton item={"Add"} />
+						<ManualAdd />
 					</div>
 				</Row>
 			</Container>

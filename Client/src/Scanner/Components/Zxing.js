@@ -1,11 +1,14 @@
+//style
 import "../scanner-style.css";
+import { Container, Col, Row } from "react-bootstrap";
+//libraries and functions
 import { BrowserMultiFormatReader, BarcodeFormat } from "@zxing/browser";
 import DecodeHintType from "@zxing/library/cjs/core/DecodeHintType";
 import { useEffect, useRef } from "react";
-import { Container, Col, Row } from "react-bootstrap";
-import useWindowDimensions from "./useWindowDimensions";
-import PopUp from "./PopUp";
 import { useState } from "react";
+import useWindowDimensions from "./useWindowDimensions";
+//Components
+import PopUp from "./PopUp";
 
 const Zxing = ({ children }) => {
 	//used to show notification
