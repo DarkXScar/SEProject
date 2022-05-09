@@ -62,6 +62,8 @@ NameList.push("Edin");
 NameList.push("Mirza");
 var weekNo = 0;
 
+var Timer = 500; // Time in miliseconds for the setTimeOut Functions. DO NOT TAMPER
+
 //Finds which week the class is in based on data filled so far
 function WeekFinder() {
   var n = 0;
@@ -74,11 +76,13 @@ function WeekFinder() {
         if (result.length == 0) {
           n++;
         }
-        weekNo = n;
-        console.log("Week " + weekNo);
       }
     );
   }
+  setTimeout(() => {
+    console.log(15 - n);
+    return 15 - n;
+  }, Timer);
 }
 
 //Sets everyone as absent for certain week, takes week number
@@ -124,7 +128,8 @@ function checkAndStore(inputID) {
   );
 }
 
-function showAllStatus(weekCount) {
+//Lists all students after scanning, shows who was absent/present
+function showAllStatusAfterScam(weekCount) {
   weekNum = "Week" + weekCount;
   db.query(
     "SELECT StudentName, ?? FROM attrec",
@@ -136,4 +141,121 @@ function showAllStatus(weekCount) {
   );
 }
 
-showAllStatus(1);
+//----------------------------------------------------------------------------------
+//Ziga's work, take two
+
+//Returns entire table in form of object array
+function getFullTabe() {
+  var storage;
+  db.query("SELECT * FROM attrec", function (err, result, fields) {
+    if (err) throw err;
+    storage = result;
+  });
+  setTimeout(() => {
+    console.log(storage);
+    return storage;
+  }, Timer);
+}
+
+//Returns Object containing attendance for one student, weekly basis
+function getOneStudent(studentName) {
+  var storage;
+  db.query(
+    "SELECT * FROM attrec WHERE StudentName = ?",
+    [studentName],
+    function (err, result, fields) {
+      if (err) throw err;
+      storage = result[0];
+    }
+  );
+  setTimeout(() => {
+    console.log(storage);
+    return storage;
+  }, Timer);
+}
+
+//Returns percentage attended for one student based on number of classes held
+function calculatePercentage(studentName) {
+  var percentAttended = 0;
+  var oneCount = 0;
+  var zeroCount = 0;
+  db.query(
+    "SELECT * FROM attrec WHERE StudentName = ?",
+    [studentName],
+    function (err, result, fields) {
+      if (err) throw err;
+      if (result.length != 0) {
+        for (const key in result[0]) {
+          if (key == "StudentID") break;
+          if (result[0][key] == 1) oneCount++;
+          if (result[0][key] == 0) zeroCount++;
+        }
+        percentAttended = (oneCount / (oneCount + zeroCount)) * 100;
+        console.log(percentAttended);
+      }
+    }
+  );
+}
+
+var allStudentsPercentagesObject = {};
+//Calculates percentage attended for every singe student inside a class
+//Saves into object above, key is student name, value is percentage
+function calcualteAllPercentages() {
+  var storage = [];
+  db.query("SELECT * FROM students", function (err, result, fields) {
+    if (err) throw err;
+    for (let i = 0; i < result.length; i++) {
+      storage.push(result[i].StudentName);
+    }
+    for (let i = 0; i < storage.length; i++) {
+      var percentAttended = 0;
+      var oneCount = 0;
+      var zeroCount = 0;
+      db.query(
+        "SELECT * FROM attrec WHERE StudentName = ?",
+        [storage[i]],
+        function (err, result, fields) {
+          if (err) throw err;
+          if (result.length != 0) {
+            for (const key in result[0]) {
+              if (key == "StudentID") break;
+              if (result[0][key] == 1) oneCount++;
+              if (result[0][key] == 0) zeroCount++;
+            }
+            percentAttended = (oneCount / (oneCount + zeroCount)) * 100;
+            allStudentsPercentagesObject[storage[i]] = percentAttended;
+          }
+        }
+      );
+    }
+  });
+}
+
+//Calculates overall percentage for entire class
+function overallClassPercentage() {
+  var percentAttended = 0;
+  oneCount = 0;
+  zeroCount = 0;
+  db.query("SELECT * FROM attrec", function (err, result, fields) {
+    if (err) throw err;
+    for (let i = 0; i < result.length; i++) {
+      for (const key in result[i]) {
+        if (key == "StudentID") break;
+        if (result[i][key] == 1) oneCount++;
+        if (result[i][key] == 0) zeroCount++;
+      }
+    }
+    percentAttended = (oneCount / (oneCount + zeroCount)) * 100;
+  });
+  setTimeout(() => {
+    console.log(percentAttended);
+    return percentAttended;
+  }, Timer);
+}
+
+//When you test your code, put your functions inside a setTimeout, as db.quearys run asynchronously therefore your function finishes before the queary
+//Also, avoid calling functions which have quearies in them
+calcualteAllPercentages();
+setTimeout(() => {
+  console.log(allStudentsPercentagesObject);
+}, Timer);
