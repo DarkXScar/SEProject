@@ -3,3 +3,19 @@
 	padding: 0 10px;
 	font-size: 20px;
 }
+
+.popup-top {
+	z-index: 4;
+	position: absolute;
+	margin-left: -13%;
+	margin-top: -47%;
+	width: 30%;
+}
+
+.center-btn {
+	margin-left: 47%;
+}
+
+.right-btn {
+	margin-left: 20%;
+}

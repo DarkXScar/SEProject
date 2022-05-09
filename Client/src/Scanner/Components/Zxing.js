@@ -1,11 +1,14 @@
+//style
 import "../scanner-style.css";
+import { Container, Col, Row } from "react-bootstrap";
+//libraries and functions
 import { BrowserMultiFormatReader, BarcodeFormat } from "@zxing/browser";
 import DecodeHintType from "@zxing/library/cjs/core/DecodeHintType";
 import { useEffect, useRef } from "react";
-import { Container, Col, Row } from "react-bootstrap";
-import useWindowDimensions from "./useWindowDimensions";
-import PopUp from "./PopUp";
 import { useState } from "react";
+import useWindowDimensions from "./useWindowDimensions";
+//Components
+import PopUp from "./PopUp";
 
 const Zxing = ({ children }) => {
 	//used to show notification
@@ -38,12 +41,12 @@ const Zxing = ({ children }) => {
 	// console.log(`this is my ID: ${id}`);
 
 	return (
-		<div className='App'>
+		<div>
 			<PopUp show={showToast} onClose={() => setShowToast(false)}>
 				{id}
 			</PopUp>
-			<Container className='d-flex justify-content-center w-85 p-3'>
-				<Col className='d-flex w-85 justify-content-center'>
+			<Container className='d-flex justify-content-center w-100 p-3'>
+				<Col className='d-flex w-100 justify-content-center'>
 					<Row>
 						<video ref={video} width={width} muted></video>
 					</Row>
