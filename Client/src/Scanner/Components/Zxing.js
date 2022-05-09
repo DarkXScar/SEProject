@@ -41,12 +41,12 @@ const Zxing = ({ children }) => {
 	// console.log(`this is my ID: ${id}`);
 
 	return (
-		<div className='App'>
+		<div>
 			<PopUp show={showToast} onClose={() => setShowToast(false)}>
 				{id}
 			</PopUp>
-			<Container className='d-flex justify-content-center w-85 p-3'>
-				<Col className='d-flex w-85 justify-content-center'>
+			<Container className='d-flex justify-content-center w-100 p-3'>
+				<Col className='d-flex w-100 justify-content-center'>
 					<Row>
 						<video ref={video} width={width} muted></video>
 					</Row>

@@ -1,22 +1,32 @@
+//libraries
 import { useState } from "react";
-import {
-	Modal,
-	Button,
-	ModalBody,
-	ModalTitle,
-	ModalHeader,
-	Form,
-} from "react-bootstrap";
+import { Modal, Button, Form } from "react-bootstrap";
+//style
 import "./scanner-style.css";
+//components
+import PopUp from "./PopUp";
 
 const ManualAdd = () => {
 	const [show, setShow] = useState(false);
+	const [inputId, setInputId] = useState("");
+	const [showToast, setShowToast] = useState(false);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 
+	const onButtonClick = () => {
+		handleClose();
+		setShowToast(true);
+	};
+
 	return (
 		<>
+			<div className='popup-top'>
+				<PopUp show={showToast} onClose={() => setShowToast(false)}>
+					{inputId}
+				</PopUp>
+			</div>
+
 			<Button variant='primary btn-fit' onClick={handleShow}>
 				Add
 			</Button>
@@ -29,7 +39,12 @@ const ManualAdd = () => {
 					<Form>
 						<Form.Group className='mb-3' controlId='studentID'>
 							<Form.Label>ID: </Form.Label>
-							<Form.Control type='text' placeholder='190302000' autoFocus />
+							<Form.Control
+								type='text'
+								placeholder='190302000'
+								value={inputId}
+								onChange={(e) => setInputId(e.target.value)}
+							/>
 						</Form.Group>
 					</Form>
 				</Modal.Body>
@@ -37,7 +52,12 @@ const ManualAdd = () => {
 					<Button variant='secondary' className='btn-fit' onClick={handleClose}>
 						Close
 					</Button>
-					<Button variant='primary' className='btn-fit' onClick={handleClose}>
+					<Button
+						variant='primary'
+						type='submit'
+						className='btn-fit'
+						onClick={onButtonClick}
+					>
 						Add
 					</Button>
 				</Modal.Footer>
