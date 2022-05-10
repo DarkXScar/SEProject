@@ -3,7 +3,7 @@ function WeekTable() {
 	return (
 		<div className='App'>
 			<table>
-				<tr>
+				<tr className='bg-danger'>
 					<th>Name</th>
 					<th>Week 1</th>
 					<th>Week 2</th>
@@ -48,9 +48,11 @@ function WeekTable() {
 	);
 }
 const data = [
-	{ name: "Mirza Redzepovic", week1: "+", week2: "-" }, //Dodajes vrijednosti sve do week15//  { name: "Megha", week1: "+", week2: "+" },
+	{ name: "Mirza", week1: "+", week2: "-" }, //Dodajes vrijednosti sve do week15//
+	{ name: "Megha", week1: "+", week2: "+" },
 	{ name: "Subham", week1: "-", week2: "+" },
 	{ name: "Megha", week1: "-", week2: "-" },
 	{ name: "Megha", week1: "+", week2: "+" },
 ];
+
 export default WeekTable;

@@ -3,22 +3,32 @@ import "./Table.css";
 function Table() {
 	return (
 		<div className='App'>
-			<table>
-				<tr>
-					<th>Name</th>
-					<th>ID</th>
-					<th>%</th>
-				</tr>
-				{data.map((val, key) => {
-					return (
-						<tr key={key}>
-							<td>{val.name}</td>
-							<td>{val.id}</td>
-							<td>{val.percentageStatus}</td>
-						</tr>
-					);
-				})}
-			</table>
+			<div>
+				<button
+					type='button'
+					className='fixed-top button btn btn-lg btn-danger'
+				>
+					Full table
+				</button>
+			</div>
+			<div className='button-margin'>
+				<br></br>
+				<br></br>
+				<table>
+					<tr className='bg-danger text-light'>
+						<th>Name</th>
+						<th>%</th>
+					</tr>
+					{data.map((val, key) => {
+						return (
+							<tr key={key}>
+								<td>{val.name}</td>
+								<td>{val.percentageStatus}</td>
+							</tr>
+						);
+					})}
+				</table>
+			</div>
 		</div>
 	);
 }
