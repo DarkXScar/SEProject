@@ -6,16 +6,27 @@ import { Container, Col, Row } from "react-bootstrap";
 import useWindowDimensions from "./useWindowDimensions";
 import PopUp from "./PopUp";
 import { useState } from "react";
+import Axios from "axios";
 
 const Zxing = ({ children }) => {
   //used to show notification
   const [showToast, setShowToast] = useState(false);
-  //student ID which is scanned
-  const [id, setId] = useState("");
   const video = useRef();
   const { width } = useWindowDimensions();
 
   useEffect(() => {
+    Axios.get("http://localhost:3001/week").then((response) => {
+      if (response) {
+        console.log(response.data);
+        Scanner();
+      } else {
+        console.log("NE MOZE");
+      }
+    });
+  }, []);
+
+  let id = 0;
+  const Scanner = () => {
     const hints = new Map();
     //added code_39 format just in case
     const formats = [BarcodeFormat.QR_CODE, BarcodeFormat.CODE_39];
@@ -28,12 +39,27 @@ const Zxing = ({ children }) => {
       //here we will query the code scanned
       if (typeof result !== "undefined") {
         //here the ID is set to the scanned value
-        setId(result.text);
-        //Notification is triggered
-        setShowToast(true);
+        id = result.text;
+        attendance();
       }
     });
-  }, []);
+  };
+
+  const attendance = () => {
+    console.log(id);
+    Axios.post("http://localhost:3001/attendance", {
+      id: id,
+    }).then((response) => {
+      if (response) {
+        console.log(response);
+      } else {
+        console.log("Not working");
+      }
+    });
+    //Notification is triggered
+    setShowToast(true);
+  };
+
   // For testing purposes
   // console.log(`this is my ID: ${id}`);
 

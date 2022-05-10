@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mysql = require("mysql");
+const axios = require("axios");
 
 const app = express(); //express server variable
 
@@ -55,13 +56,52 @@ app.post("/accordion", (req, res) => {
   );
 });
 
+let weekNo = "";
+const Timer = 100;
+app.get("/week", (req, res) => {
+  let n = 1;
+  for (let i = 1; i <= 15; i++) {
+    db.query(
+      "SELECT * FROM attrec WHERE ?? IS NULL",
+      ["Week" + i],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+        }
+        if (result.length == 0) {
+          n = ++i;
+        }
+      }
+    );
+  }
+  setTimeout(() => {
+    weekNo = "Week" + n;
+    res.send("Week" + n);
+  }, Timer);
+});
+
+app.post("/attendance", (req, res) => {
+  console.log(weekNo);
+  const id = req.body.id;
+  console.log(id);
+  db.query(
+    "UPDATE attrec SET ?? = 1 WHERE StudentID = ?",
+    [weekNo, id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(result);
+        res.send(result);
+        console.log("good");
+      }
+    }
+  );
+});
+
 //Da se zna da sam nesto uradio
 //Added confirmation message
 var port = 3001;
-app.get("/", function (request, response, next) {
-  response.send("Running on port " + port);
-});
-
 app.listen(port, () => {
-  console.log("Running on port" + port);
+  console.log("Running on port " + port);
 });
