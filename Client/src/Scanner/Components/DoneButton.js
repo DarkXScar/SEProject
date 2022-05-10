@@ -2,12 +2,12 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import "./scanner-style.css";
 
-const AddButton = ({ item }) => {
+const DoneButton = () => {
 	return (
 		<>
-			<Button variant='primary btn-fit'>{item}</Button>
+			<Button variant='primary btn-fit'>Done</Button>
 		</>
 	);
 };
 
-export default AddButton;
+export default DoneButton;
