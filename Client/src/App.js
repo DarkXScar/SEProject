@@ -5,6 +5,9 @@ import Scanner from "./Scanner/Scanner";
 import LogIn from "./LogIn/Components/LogIn";
 import Accordion from "./CourseList/Components/Accordion";
 import Table from "./AttendancePercentageTable/Components/Table";
+import AttendanceToday from "./AttendanceToday/Components/AttendanceToday";
+import IndividualAttendance from "./IndividualAttendance/Components/IndividualAttendance";
+import WeekTable from "./WeeklyAttendance/Components/WeekTable";
 
 function App() {
 	return (
@@ -18,6 +21,15 @@ function App() {
 					<Route path='/home' element={<Accordion />} />
 
 					<Route path='/attendance-table' element={<Table />} />
+
+					<Route path='/attendance-today' element={<AttendanceToday />} />
+
+					<Route
+						path='/attendance-individual'
+						element={<IndividualAttendance />}
+					/>
+
+					<Route path='/attendance-individual-week' element={<WeekTable />} />
 				</Routes>
 			</Router>
 		</>

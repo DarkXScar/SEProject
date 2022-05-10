@@ -1,8 +1,10 @@
 import "../table-style.css";
+import NextPageBtn from "../../SharedComponents/NextPageBtn/NextPageBtn";
 
 const IndividualAttendance = () => {
 	return (
 		<div className='App'>
+			<NextPageBtn next='/home' />
 			<table>
 				<tr className='bg-danger text-light'>
 					<th>Week</th>

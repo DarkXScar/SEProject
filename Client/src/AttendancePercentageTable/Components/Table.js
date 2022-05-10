@@ -1,8 +1,10 @@
-import "./Table.css";
+import "../Table.css";
+import NextPageBtn from "../../SharedComponents/NextPageBtn/NextPageBtn";
 
 function Table() {
 	return (
 		<div className='App'>
+			<NextPageBtn next='/home' />
 			<div>
 				<button
 					type='button'
