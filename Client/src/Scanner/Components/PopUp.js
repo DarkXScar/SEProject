@@ -1,7 +1,7 @@
 import React from "react";
 import { Toast, ToastBody, ToastHeader } from "react-bootstrap";
 
-const PopUp = ({ show = false, onClose = () => {}, children }) => {
+const PopUp = ({ show = false, onClose = () => {}, children, header }) => {
 	return (
 		<div className='d-flex justify-content-center'>
 			<Toast
@@ -25,7 +25,7 @@ const PopUp = ({ show = false, onClose = () => {}, children }) => {
 					>
 						<rect width='100%' height='100%' fill='#007aff'></rect>
 					</svg>
-					<strong className='me-auto'>Student Added</strong>
+					<strong className='me-auto'>{header}</strong>
 				</ToastHeader>
 				<ToastBody>{children}</ToastBody>
 			</Toast>

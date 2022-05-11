@@ -42,7 +42,11 @@ const Zxing = ({ children }) => {
 
 	return (
 		<div>
-			<PopUp show={showToast} onClose={() => setShowToast(false)}>
+			<PopUp
+				show={showToast}
+				onClose={() => setShowToast(false)}
+				header='Student added'
+			>
 				{id}
 			</PopUp>
 			<Container className='d-flex justify-content-center w-100 p-3'>
