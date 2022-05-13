@@ -24,7 +24,8 @@ const ManualAdd = () => {
 			<div className='popup-top'>
 				<PopUp
 					show={showToast}
-					onClose={(() => setShowToast(false), (header = "Student added"))}
+					onClose={() => setShowToast(false)}
+					header='Student added'
 				>
 					{inputId}
 				</PopUp>
