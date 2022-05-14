@@ -56,6 +56,12 @@ app.post("/accordion", (req, res) => {
   );
 });
 
+let courseName = "";
+app.post("/courseName", (req, res) => {
+  courseName = req.body.courseName;
+  console.log(courseName);
+});
+
 let weekNo = "";
 const Timer = 100;
 app.get("/week", (req, res) => {

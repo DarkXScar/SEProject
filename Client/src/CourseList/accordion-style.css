@@ -1,9 +1,78 @@
-.button1-box {
-  text-align: center;
-  margin-top: 20px;
-  padding-left: 10px;
+.wrapper {
+  display: flex;
+  height: fit-content;
+  width: auto;
+  min-width: fit-content;
+  justify-content: center;
+  align-items: center;
 }
-.btn-primary-spacing {
-  margin-right: 5px;
-  margin-bottom: 5px !important;
+.accordion {
+  width: fit-content;
+}
+
+.img {
+  height: 20px;
+  width: 10px;
+  display: flex;
+  position: absolute;
+  left: 540px;
+}
+.item {
+  background: #e95950;
+  margin-bottom: 5px;
+  padding: 10px 20px;
+}
+.title {
+  color: aliceblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.content {
+  color: black;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+}
+.content.show {
+  height: auto;
+  max-height: 9999px;
+  transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+}
+.btnDiv {
+  position: relative;
+}
+.regBtn {
+  margin-left: 10px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 40%;
+
+  border-radius: 3px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  /*Odozdo novo*/
+
+  border: 0;
+  border-radius: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
 }
