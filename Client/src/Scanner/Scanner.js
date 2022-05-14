@@ -5,7 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Zxing from "./Components/Zxing";
 import ManualAdd from "./Components/ManualAdd";
 import DoneButton from "./Components/DoneButton";
-
+import BackButton from "./Components/BackButton";
 //style
 import "./Components/scanner-style.css";
 
@@ -14,9 +14,8 @@ const Scanner = () => {
 		<>
 			<Container>
 				<Row>
-					<Col>
-						<Zxing />
-					</Col>
+					<BackButton />
+					<Zxing />
 				</Row>
 				<Row>
 					<div className='d-flex'>

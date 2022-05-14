@@ -1,6 +1,10 @@
+//Libraries
 import React, { useState } from "react";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
+//Style
 import "../login-style.css";
+//Images
 import user from "../Images/user.png";
 import email from "../Images/email.png";
 import unlock from "../Images/unlock.png";
@@ -10,8 +14,6 @@ function LogIn() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  const [logInStatus, setLoginStatus] = useState("");
 
   const login = () => {
     Axios.post("http://localhost:3001/login", {

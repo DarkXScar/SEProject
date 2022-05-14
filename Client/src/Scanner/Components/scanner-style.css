@@ -19,3 +19,8 @@
 .right-btn {
 	margin-left: 20%;
 }
+
+.upper-left {
+	position: absolute;
+	z-index: 5;
+}
