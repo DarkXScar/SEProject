@@ -4,8 +4,10 @@ import "../login-style.css";
 import user from "../Images/user.png";
 import email from "../Images/email.png";
 import unlock from "../Images/unlock.png";
+import { useNavigate } from "react-router-dom";
 
 function LogIn() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,11 +19,12 @@ function LogIn() {
       password: password,
     }).then((response) => {
       if (response.data.message) {
-        console.log(response);
-        setLoginStatus(response.data.message);
+        console.log(response.data.message);
+        //setLoginStatus(response.data.message);
       } else {
         console.log(response);
-        setLoginStatus(response.data[0].ProfessorName);
+        navigate("/home");
+        //setLoginStatus(response.data[0].ProfessorName);
       }
     });
   };

@@ -99,6 +99,78 @@ app.post("/attendance", (req, res) => {
   );
 });
 
+let percentage = 0;
+
+app.post("/allstudentsweek", (req, res) => {
+  let students = req.body.students;
+  let data = req.body.data;
+
+  db.query("SELECT StudentName,StudentID FROM attrec", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      students = result;
+    }
+  });
+
+  setTimeout(() => {
+    db.query("SELECT * FROM attrec", (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        //console.log(result);
+        //console.log(students);
+        data = calc(result, students);
+        console.log(data);
+        console.log("Line 124");
+        res.send(data); //make function inside foreach loop to go through array and add percentage i.e. element[ind].percentage=calc(element[ind])
+      }
+    });
+  }, Timer);
+});
+
+const calc = (result, students) => {
+  for (let j = 0; j < students.length; j++) {
+    let att = 0;
+    let all = 0;
+    for (let i = 1; i <= 15; i++) {
+      let currWeek = "Week" + i;
+
+      if (result[j][currWeek] != null) {
+        if (result[j][currWeek] === 1) {
+          att++;
+          all++;
+        } else {
+          all++;
+        }
+        console.log(att / all);
+        console.log("Line 146");
+        percentage = (att / all) * 100 + "%";
+      }
+    }
+
+    console.log(percentage);
+    students[j].percentageStatus = percentage;
+    console.log(students[j]);
+    console.log("Line 152");
+  }
+  console.log(students);
+  console.log("Line 154");
+  return students;
+};
+
+app.post("/allstudents", (req, res) => {
+  const data = req.body.data;
+
+  db.query("SELECT StudentName,StudentID FROM attrec", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
 //Da se zna da sam nesto uradio
 //Added confirmation message
 var port = 3001;
