@@ -8,8 +8,8 @@
 
 table {
 	border: solid white;
-	width: 400px;
-	height: 200px;
+	width: 80%;
+	height: fit-content;
 }
 th {
 	text-align: left;
@@ -29,8 +29,7 @@ td {
 .button {
 	position: center;
 	top: 0;
-	margin-left: 36%;
-	margin-right: 36%;
+	margin: 0 auto;
 }
 .button-margin {
 	margin-top: 1%;

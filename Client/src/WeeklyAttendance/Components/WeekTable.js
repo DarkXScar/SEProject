@@ -27,22 +27,22 @@ function WeekTable() {
 					{data.map((val, key) => {
 						return (
 							<tr key={key}>
-								<td>{val.name}</td>
-								<td>{val.week1}</td>
-								<td>{val.week2}</td>
-								<td>{val.week3}</td>
-								<td>{val.week4}</td>
-								<td>{val.week5}</td>
-								<td>{val.week6}</td>
-								<td>{val.week7}</td>
-								<td>{val.week8}</td>
-								<td>{val.week9}</td>
-								<td>{val.week10}</td>
-								<td>{val.week11}</td>
-								<td>{val.week12}</td>
-								<td>{val.week13}</td>
-								<td>{val.week14}</td>
-								<td>{val.week15}</td>
+								<td className='text-center'>{val.name}</td>
+								<td className='text-center'>{val.week1}</td>
+								<td className='text-center'>{val.week2}</td>
+								<td className='text-center'>{val.week3}</td>
+								<td className='text-center'>{val.week4}</td>
+								<td className='text-center'>{val.week5}</td>
+								<td className='text-center'>{val.week6}</td>
+								<td className='text-center'>{val.week7}</td>
+								<td className='text-center'>{val.week8}</td>
+								<td className='text-center'>{val.week9}</td>
+								<td className='text-center'>{val.week10}</td>
+								<td className='text-center'>{val.week11}</td>
+								<td className='text-center'>{val.week12}</td>
+								<td className='text-center'>{val.week13}</td>
+								<td className='text-center'>{val.week14}</td>
+								<td className='text-center'>{val.week15}</td>
 							</tr>
 						);
 					})}

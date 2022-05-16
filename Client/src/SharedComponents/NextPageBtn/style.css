@@ -1,6 +1,7 @@
 .bottom-right {
 	position: absolute;
 	z-index: 5;
+	bottom: 0;
+	margin-bottom: 40px;
 	margin-left: 80%;
-	margin-top: 90%;
 }

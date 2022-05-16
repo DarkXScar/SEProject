@@ -13,8 +13,8 @@ const AttendanceToday = () => {
 				{data.map((val, key) => {
 					return (
 						<tr key={key}>
-							<td>{val.name}</td>
-							<td>{val.attendanceStatus}</td>
+							<td className='text-center'>{val.name}</td>
+							<td className='text-center'>{val.attendanceStatus}</td>
 						</tr>
 					);
 				})}

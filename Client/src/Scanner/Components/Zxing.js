@@ -9,7 +9,7 @@ import useWindowDimensions from "./useWindowDimensions";
 //Components
 import PopUp from "./PopUp";
 
-const Zxing = ({ children }) => {
+const Zxing = () => {
 	//used to show notification
 	const [showToast, setShowToast] = useState(false);
 	//student ID which is scanned

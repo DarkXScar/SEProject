@@ -13,8 +13,8 @@ const IndividualAttendance = () => {
 				{data.map((val, key) => {
 					return (
 						<tr key={key}>
-							<td>{val.week}</td>
-							<td>{val.attendanceStatus}</td>
+							<td className='text-center'>{val.week}</td>
+							<td className='text-center'>{val.attendanceStatus}</td>
 						</tr>
 					);
 				})}
