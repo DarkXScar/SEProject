@@ -36,7 +36,7 @@ function LogIn() {
 	return (
 		<div className='main'>
 			<div className='sub-main'>
-				<div>
+				<div className='w-75'>
 					<div className='log-in-image'>
 						<div className='image-container'>
 							<img src={user} alt='user icon' className='user' />
