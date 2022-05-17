@@ -6,24 +6,11 @@
 	align-items: center;
 }
 
-table {
-	border: solid white;
-	width: 80%;
-	height: fit-content;
-}
-th {
-	text-align: left;
-	padding: 8px;
-}
 tr:nth-child(even) {
 	background-color: #f2f2f2;
 }
 tr:hover {
 	background-color: #ff6565;
-}
-td {
-	text-align: left;
-	padding: 6px;
 }
 
 .button {
@@ -32,5 +19,13 @@ td {
 	margin: 0 auto;
 }
 .button-margin {
-	margin-top: 1%;
+	margin-top: 60px;
+}
+
+table {
+	width: 1000px;
+}
+th,
+td {
+	width: 500px;
 }

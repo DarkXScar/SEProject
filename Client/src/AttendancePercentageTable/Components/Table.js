@@ -1,6 +1,7 @@
 import "../Table.css";
 import NextPageBtn from "../../SharedComponents/NextPageBtn/NextPageBtn";
 import { Link } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
 function Table() {
 	return (
@@ -16,26 +17,33 @@ function Table() {
 					</button>
 				</Link>
 			</div>
-			<div className='button-margin'>
-				<br></br>
-				<br></br>
-				<table>
-					<tr className='bg-danger text-light'>
-						<th>Name</th>
-						<th>%</th>
-					</tr>
-					{data.map((val, key) => {
-						return (
-							<tr key={key}>
-								<Link to='../attendance-individual' className='link-secondary'>
-									<td className='text-center'>{val.name}</td>
-								</Link>
-								<td className='text-center'>{val.percentageStatus}</td>
+			<Container className='d-flex justify-content-center'>
+				<div className='button-margin'>
+					<table className='table w-100'>
+						<thead>
+							<tr className='bg-danger text-light'>
+								<th scope='col'>Name</th>
+								<th scope='col'>%</th>
 							</tr>
-						);
-					})}
-				</table>
-			</div>
+						</thead>
+						<tbody>
+							{data.map((val, key) => {
+								return (
+									<tr key={key}>
+										<Link
+											to='../attendance-individual'
+											className='link-secondary'
+										>
+											<td className='text-center'>{val.name}</td>
+										</Link>
+										<td className='text-center'>{val.percentageStatus}</td>
+									</tr>
+								);
+							})}
+						</tbody>
+					</table>
+				</div>
+			</Container>
 		</div>
 	);
 }
