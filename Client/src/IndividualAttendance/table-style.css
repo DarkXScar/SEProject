@@ -8,20 +8,16 @@
 
 table {
 	border: solid white;
-	width: 400px;
-	height: 200px;
+	width: 100%;
 }
-th {
-	text-align: left;
+th,
+td {
 	padding: 8px;
+	min-width: 50px;
 }
 tr:nth-child(even) {
 	background-color: #f2f2f2;
 }
 tr:hover {
 	background-color: #ff6565;
-}
-td {
-	text-align: left;
-	padding: 6px;
 }

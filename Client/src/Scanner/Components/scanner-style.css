@@ -7,9 +7,10 @@
 .popup-top {
 	z-index: 4;
 	position: absolute;
+	display: block;
 	margin-left: -13%;
-	margin-top: -47%;
 	width: 30%;
+	top: 2%;
 }
 
 .center-btn {

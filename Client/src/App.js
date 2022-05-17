@@ -29,7 +29,7 @@ function App() {
 						element={<IndividualAttendance />}
 					/>
 
-					<Route path='/attendance-individual-week' element={<WeekTable />} />
+					<Route path='/attendance-all-weeks' element={<WeekTable />} />
 				</Routes>
 			</Router>
 		</>

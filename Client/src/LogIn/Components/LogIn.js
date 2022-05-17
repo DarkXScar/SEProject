@@ -68,14 +68,11 @@ function LogIn() {
               <button onClick={login}>Log-in</button>
             </div>
             <div>
-              <p className="links">
-                <a href="#">Forgot password?</a>or<a href="#">Sign up</a>
-              </p>
+              <h3>{logInStatus}</h3>
             </div>
           </div>
         </div>
       </div>
-      <h1>{logInStatus}</h1>
     </div>
   );
 }
