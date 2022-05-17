@@ -55,6 +55,7 @@ const Zxing = ({ children }) => {
     }).then((response) => {
       if (response) {
         console.log(response.data);
+        setStudentName(response.data[0].StudentName);
       } else {
         console.log("Not working");
       }
@@ -73,7 +74,7 @@ const Zxing = ({ children }) => {
         onClose={() => setShowToast(false)}
         header="Student added"
       >
-        {id}
+        {studentName}
       </PopUp>
       <Container className="d-flex justify-content-center w-100 p-3">
         <video ref={video} width={width} muted></video>

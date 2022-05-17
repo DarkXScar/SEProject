@@ -26,48 +26,48 @@ function Table() {
     });
   }, []);
 
-	return (
-		<div className='App'>
-			<NextPageBtn next='/home' />
-			<div className='center-button'>
-				<Link to='/attendance-all-weeks'>
-					<button
-						type='button'
-						className='fixed-top button btn btn-lg btn-danger'
-					>
-						Full table
-					</button>
-				</Link>
-			</div>
-			<Container>
-				<div className='button-margin'>
-					<table className='table'>
-						<thead>
-							<tr className='bg-danger text-light'>
-								<th scope='col'>Name</th>
-								<th scope='col'>%</th>
-							</tr>
-						</thead>
-						<tbody>
-							{students.map((val, key) => {
-								return (
-									<tr key={key}>
-										<Link
-											to='../attendance-individual'
-											className='link-secondary'
-										>
-											<td className='text-center'>{val.name}</td>
-										</Link>
-										<td className='text-center'>{val.percentageStatus}</td>
-									</tr>
-								);
-							})}
-						</tbody>
-					</table>
-				</div>
-			</Container>
-		</div>
-	);
-
+  return (
+    <div className="App">
+      <NextPageBtn next="/home" />
+      <div className="center-button">
+        <Link to="/attendance-all-weeks">
+          <button
+            type="button"
+            className="fixed-top button btn btn-lg btn-danger"
+          >
+            Full table
+          </button>
+        </Link>
+      </div>
+      <Container>
+        <div className="button-margin">
+          <table className="table">
+            <thead>
+              <tr className="bg-danger text-light">
+                <th scope="col">Name</th>
+                <th scope="col">%</th>
+              </tr>
+            </thead>
+            <tbody>
+              {students.map((val, key) => {
+                return (
+                  <tr key={key}>
+                    <Link
+                      to="../attendance-individual"
+                      className="link-secondary"
+                    >
+                      <td className="text-center">{val.name}</td>
+                    </Link>
+                    <td className="text-center">{val.percentageStatus}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </Container>
+    </div>
+  );
+}
 
 export default Table;

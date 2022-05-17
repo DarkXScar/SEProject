@@ -4,7 +4,7 @@ const cors = require("cors");
 const mysql = require("mysql");
 const axios = require("axios");
 
-const app = express(); //express server variable
+const app = express();
 
 const db = mysql.createConnection({
   user: "root",
@@ -20,7 +20,7 @@ db.connect(function (err) {
 
 app.use(cors());
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true })); //generic form for activating body-parser
+app.use(bodyParser.urlencoded({ extended: true }));
 
 let ProfName = "";
 app.post("/login", (req, res) => {
@@ -97,7 +97,6 @@ app.get("/week", (req, res) => {
 app.post("/attendance", (req, res) => {
   console.log(weekNo);
   const id = req.body.id;
-  let resultSend = "";
 
   db.query(
     "UPDATE ?? SET ?? = 1 WHERE StudentID = ?",
@@ -183,9 +182,7 @@ app.post("/attendanceindividual", (req, res) => {
             attendanceStatus: result[0][currWeek],
           };
         }
-        //data = result;
         console.log(data);
-        console.log("Line 142");
         res.send(data);
       }
     }
@@ -215,12 +212,9 @@ app.post("/allstudentsweek", (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        //console.log(result);
-        //console.log(students);
         data = calc(result, students);
         console.log(data);
-        console.log("Line 124");
-        res.send(data); //make function inside foreach loop to go through array and add percentage i.e. element[ind].percentage=calc(element[ind])
+        res.send(data);
       }
     });
   }, Timer);
