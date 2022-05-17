@@ -10,15 +10,15 @@ import IndividualAttendance from "./IndividualAttendance/Components/IndividualAt
 import WeekTable from "./WeeklyAttendance/Components/WeekTable";
 
 function App() {
-	return (
-		<>
-			<Router>
-				<Routes>
-					<Route path='/' element={<LogIn />} />
+  return (
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LogIn />} />
 
-					<Route path='/scanner' element={<Scanner />} />
+          <Route path="/scanner" element={<Scanner />} />
 
-					<Route path='/home' element={<Accordion />} />
+          <Route path="/home" element={<Accordion />} />
 
 					<Route path='/attendance-table' element={<Table />} />
 
