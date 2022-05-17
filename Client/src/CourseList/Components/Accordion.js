@@ -1,15 +1,17 @@
 import Axios from "axios";
 import { useState } from "react";
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../accordion-style.css";
 
 const Accordion = () => {
+  const navigate = useNavigate();
   let [data, setCourses] = useState([{}]);
 
-  const cont = (courseName) => {
+  const cont = (courseCode) => {
+    console.log(courseCode);
     Axios.post("http://localhost:3001/courseName", {
-      courseName: courseName,
+      courseCode: courseCode,
     });
   };
 
@@ -45,14 +47,24 @@ const Accordion = () => {
                   <button
                     className="regBtn bg-light"
                     type="submit"
-                    onClick={() => cont(item.CourseName)}
+                    onClick={() => {
+                      cont(item.CourseCode);
+                      navigate("/scanner");
+                    }}
                   >
                     <img
                       src="https://cdn-icons-png.flaticon.com/512/3126/3126571.png"
                       width="20"
                     />
                   </button>
-                  <button className="regBtn bg-light" type="submit">
+                  <button
+                    className="regBtn bg-light"
+                    type="submit"
+                    onClick={() => {
+                      cont(item.CourseCode);
+                      navigate("/attendance-table");
+                    }}
+                  >
                     {" "}
                     <img
                       src="https://cdn-icons-png.flaticon.com/512/103/103091.png"

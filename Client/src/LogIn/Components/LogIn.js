@@ -8,7 +8,6 @@ import "../login-style.css";
 import user from "../Images/user.png";
 import email from "../Images/email.png";
 import unlock from "../Images/unlock.png";
-import { useNavigate } from "react-router-dom";
 
 function LogIn() {
   const navigate = useNavigate();
@@ -22,11 +21,9 @@ function LogIn() {
     }).then((response) => {
       if (response.data.message) {
         console.log(response.data.message);
-        //setLoginStatus(response.data.message);
       } else {
         console.log(response);
         navigate("/home");
-        //setLoginStatus(response.data[0].ProfessorName);
       }
     });
   };
@@ -46,7 +43,7 @@ function LogIn() {
               <img src={email} alt="Mail icon" className="email" />
               <input
                 type="text"
-                placeholder="email"
+                placeholder="Username"
                 className="name"
                 onChange={(e) => {
                   setUsername(e.target.value);
@@ -57,7 +54,7 @@ function LogIn() {
               <img src={unlock} alt="Password icon" className="password" />
               <input
                 type="password"
-                placeholder="password"
+                placeholder="Password"
                 className="name"
                 onChange={(e) => {
                   setPassword(e.target.value);

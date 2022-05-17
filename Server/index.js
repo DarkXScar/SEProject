@@ -43,63 +43,150 @@ app.post("/login", (req, res) => {
 
 app.post("/accordion", (req, res) => {
   let courses = req.body.courses;
-  db.query(
-    "SELECT * FROM courses WHERE CourseProfessor = ?",
-    [ProfName],
-    (err, result) => {
-      if (err) console.log(err);
+  setTimeout(() => {
+    db.query(
+      "SELECT * FROM courses WHERE CourseProfessor = ?",
+      [ProfName],
+      (err, result) => {
+        if (err) console.log(err);
 
-      if (result.length > 0) {
-        res.send(result);
-      } else console.log("Ne");
-    }
-  );
+        if (result.length > 0) {
+          res.send(result);
+        } else console.log("Ne");
+      }
+    );
+  }, Timer);
 });
 
-let courseName = "";
+let courseCode = "";
 app.post("/courseName", (req, res) => {
-  courseName = req.body.courseName;
-  console.log(courseName);
+  let courseC = req.body.courseCode;
+  console.log(courseC);
+
+  courseCode = courseC.toLowerCase();
+
+  console.log(courseCode);
 });
 
 let weekNo = "";
-const Timer = 100;
+const Timer = 500;
 app.get("/week", (req, res) => {
   let n = 1;
-  for (let i = 1; i <= 15; i++) {
-    db.query(
-      "SELECT * FROM attrec WHERE ?? IS NULL",
-      ["Week" + i],
-      (err, result) => {
-        if (err) {
-          console.log(err);
+  setTimeout(() => {
+    for (let i = 1; i <= 15; i++) {
+      db.query(
+        "SELECT * FROM ?? WHERE ?? IS NULL",
+        [courseCode, "Week" + i],
+        (err, result) => {
+          if (err) {
+            console.log(err);
+          }
+          if (result.length == 0) {
+            n = ++i;
+          }
         }
-        if (result.length == 0) {
-          n = ++i;
-        }
-      }
-    );
-  }
+      );
+    }
+  }, Timer);
   setTimeout(() => {
     weekNo = "Week" + n;
     res.send("Week" + n);
-  }, Timer);
+  }, 2 * Timer);
 });
 
 app.post("/attendance", (req, res) => {
   console.log(weekNo);
   const id = req.body.id;
-  console.log(id);
+  let resultSend = "";
+
   db.query(
-    "UPDATE attrec SET ?? = 1 WHERE StudentID = ?",
-    [weekNo, id],
+    "UPDATE ?? SET ?? = 1 WHERE StudentID = ?",
+    [courseCode, weekNo, id],
     (err, result) => {
       if (err) {
         console.log(err);
       } else {
         console.log(result);
-        res.send(result);
-        console.log("good");
+      }
+    }
+  );
+  setTimeout(() => {
+    db.query(
+      "SELECT StudentName FROM ?? WHERE StudentID = ?",
+      [courseCode, id],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(result);
+          res.send(result);
+        }
+      }
+    );
+  }, Timer);
+
+  console.log("good");
+});
+
+const getName = (id, courseCode) => {
+  db.query(
+    "SELECT StudentName FROM ?? WHERE StudentID = ?",
+    [courseCode, id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(result);
+        return result;
+      }
+    }
+  );
+};
+
+setTimeout(() => {
+  app.post("/attendancetoday", (req, res) => {
+    let data = req.body.data;
+
+    db.query(
+      "SELECT StudentName,?? FROM ??",
+      [weekNo, courseCode],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          data = result;
+          for (let i = 0; i < result.length; i++) {
+            data[i].attendanceStatus = result[i][weekNo];
+          }
+          res.send(data);
+        }
+      }
+    );
+  });
+}, 2 * Timer);
+
+app.post("/attendanceindividual", (req, res) => {
+  let data = req.body.data;
+  console.log("Tu sam");
+  db.query(
+    "SELECT Week1, Week2, Week3, Week4, Week5, Week6, Week7, Week8, Week9, Week10, Week11, Week12, Week13, Week14, Week15 FROM attrec WHERE StudentID = 190302020",
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(data);
+        for (let i = 1; i <= 15; i++) {
+          let currWeek = "Week" + i;
+
+          data[i - 1] = {
+            weekNumber: "Week " + i,
+            attendanceStatus: result[0][currWeek],
+          };
+        }
+        //data = result;
+        console.log(data);
+        console.log("Line 142");
+        res.send(data);
       }
     }
   );
@@ -111,16 +198,20 @@ app.post("/allstudentsweek", (req, res) => {
   let students = req.body.students;
   let data = req.body.data;
 
-  db.query("SELECT StudentName,StudentID FROM attrec", (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      students = result;
+  db.query(
+    "SELECT StudentName,StudentID FROM ??",
+    [courseCode],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        students = result;
+      }
     }
-  });
+  );
 
   setTimeout(() => {
-    db.query("SELECT * FROM attrec", (err, result) => {
+    db.query("SELECT * FROM ??", [courseCode], (err, result) => {
       if (err) {
         console.log(err);
       } else {
@@ -149,29 +240,32 @@ const calc = (result, students) => {
         } else {
           all++;
         }
-        console.log(att / all);
-        console.log("Line 146");
-        percentage = (att / all) * 100 + "%";
+        percentage = Math.round((att / all) * 100) + "%";
       }
     }
-
-    console.log(percentage);
     students[j].percentageStatus = percentage;
-    console.log(students[j]);
-    console.log("Line 152");
   }
-  console.log(students);
-  console.log("Line 154");
   return students;
 };
 
-app.post("/allstudents", (req, res) => {
-  const data = req.body.data;
+app.get("/allelse", (req, res) => {
+  console.log("evo me");
+  db.query("UPDATE ?? SET ?? = '0' WHERE ?? IS NULL", [
+    courseCode,
+    weekNo,
+    weekNo,
+  ]);
+});
 
-  db.query("SELECT StudentName,StudentID FROM attrec", (err, result) => {
+app.post("/allstudents", (req, res) => {
+  const students = req.body.students;
+
+  db.query("SELECT * FROM ??", [courseCode], (err, result) => {
     if (err) {
       console.log(err);
     } else {
+      console.log(result);
+      students = result;
       res.send(result);
     }
   });

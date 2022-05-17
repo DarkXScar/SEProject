@@ -6,11 +6,13 @@ import { BrowserMultiFormatReader, BarcodeFormat } from "@zxing/browser";
 import DecodeHintType from "@zxing/library/cjs/core/DecodeHintType";
 import { useEffect, useRef, useState } from "react";
 import useWindowDimensions from "./useWindowDimensions";
+import Axios from "axios";
 //Components
 import PopUp from "./PopUp";
 
 const Zxing = ({ children }) => {
   //used to show notification
+  const [studentName, setStudentName] = useState("");
   const [showToast, setShowToast] = useState(false);
   const video = useRef();
   const { width } = useWindowDimensions();
@@ -24,7 +26,7 @@ const Zxing = ({ children }) => {
         console.log("NE MOZE");
       }
     });
-  }, []);
+  });
 
   let id = 0;
   const Scanner = () => {
@@ -52,7 +54,7 @@ const Zxing = ({ children }) => {
       id: id,
     }).then((response) => {
       if (response) {
-        console.log(response);
+        console.log(response.data);
       } else {
         console.log("Not working");
       }
@@ -64,20 +66,6 @@ const Zxing = ({ children }) => {
   // For testing purposes
   // console.log(`this is my ID: ${id}`);
 
-  return (
-    <div className="App">
-      <PopUp show={showToast} onClose={() => setShowToast(false)}>
-        {id}
-      </PopUp>
-      <Container className="d-flex justify-content-center w-85 p-3">
-        <Col className="d-flex w-85 justify-content-center">
-          <Row>
-            <video ref={video} width={width} muted></video>
-          </Row>
-        </Col>
-      </Container>
-    </div>
-  );
   return (
     <div>
       <PopUp
