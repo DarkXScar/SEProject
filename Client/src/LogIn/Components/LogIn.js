@@ -69,9 +69,9 @@ function LogIn() {
 						<div className='log-in-btn'>
 							<button onClick={login}>Log-in</button>
 						</div>
-						<div>
-							<p className='links'>
-								<a href='#'>Forgot password?</a>or<a href='#'>Sign up</a>
+						<div className='links-spacer'>
+							<p className='links '>
+								<a href='#'>Forgot password?</a> or <a href='#'>Sign up</a>
 							</p>
 						</div>
 					</div>
