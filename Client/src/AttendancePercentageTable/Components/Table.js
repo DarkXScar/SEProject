@@ -17,9 +17,9 @@ function Table() {
 					</button>
 				</Link>
 			</div>
-			<Container className='d-flex justify-content-center'>
+			<Container>
 				<div className='button-margin'>
-					<table className='table w-100'>
+					<table className='table'>
 						<thead>
 							<tr className='bg-danger text-light'>
 								<th scope='col'>Name</th>

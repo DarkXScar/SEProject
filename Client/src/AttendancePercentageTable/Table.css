@@ -23,7 +23,7 @@ tr:hover {
 }
 
 table {
-	min-width: 500px;
+	min-width: 100%;
 	border: solid white;
 }
 th,
