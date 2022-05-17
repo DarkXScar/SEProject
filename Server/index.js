@@ -116,9 +116,11 @@ app.post("/attendance", (req, res) => {
       (err, result) => {
         if (err) {
           console.log(err);
-        } else {
-          console.log(result);
+        }
+        if (result.length > 0) {
           res.send(result);
+        } else {
+          res.send({ message: "Invalid ID!" });
         }
       }
     );

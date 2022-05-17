@@ -53,11 +53,11 @@ const Zxing = ({ children }) => {
     Axios.post("http://localhost:3001/attendance", {
       id: id,
     }).then((response) => {
-      if (response) {
+      if (response.data.message) {
+        setStudentName(response.data.message);
+      } else {
         console.log(response.data);
         setStudentName(response.data[0].StudentName);
-      } else {
-        console.log("Not working");
       }
     });
     //Notification is triggered

@@ -26,11 +26,11 @@ const ManualAdd = () => {
     Axios.post("http://localhost:3001/attendance", {
       id: id,
     }).then((response) => {
-      if (response) {
-        console.log(response.data[0]);
-        setStudentName(response.data[0].StudentName);
+      if (response.data.message) {
+        setStudentName(response.data.message);
       } else {
-        console.log("Not working");
+        console.log(response.data);
+        setStudentName(response.data[0].StudentName);
       }
     });
     //Notification is triggered

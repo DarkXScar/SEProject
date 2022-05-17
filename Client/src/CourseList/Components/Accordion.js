@@ -76,8 +76,8 @@ const Accordion = () => {
             </div>
             <div className={selected == i ? "content show" : "content"}>
               <div className="text-light">
-                {item.CourseCode} <br></br>
-                {item.RoomNumber}
+                Course code: {item.CourseCode} <br></br>
+                Classroom: {item.RoomNumber}
               </div>
             </div>
           </div>
