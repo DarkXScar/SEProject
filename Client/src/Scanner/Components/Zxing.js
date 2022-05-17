@@ -48,7 +48,7 @@ const Zxing = () => {
 			>
 				{id}
 			</PopUp>
-			<Container className='d-flex justify-content-center w-100 p-3'>
+			<Container className='d-flex justify-content-center w-100 p-2'>
 				<video ref={video} width={width} muted></video>
 			</Container>
 		</div>
