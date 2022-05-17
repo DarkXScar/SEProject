@@ -13,6 +13,7 @@ function LogIn() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [logInStatus, setLogInStatus] = useState("");
 
   const login = () => {
     Axios.post("http://localhost:3001/login", {
@@ -20,7 +21,7 @@ function LogIn() {
       password: password,
     }).then((response) => {
       if (response.data.message) {
-        console.log(response.data.message);
+        setLogInStatus(response.data.message);
       } else {
         console.log(response);
         navigate("/home");
@@ -39,6 +40,7 @@ function LogIn() {
           </div>
           <div>
             <h1>Log-in page</h1>
+
             <div>
               <img src={email} alt="Mail icon" className="email" />
               <input
@@ -62,10 +64,8 @@ function LogIn() {
               />
             </div>
             <div className="log-in-btn">
+              <h6>{logInStatus}</h6>
               <button onClick={login}>Log-in</button>
-            </div>
-            <div>
-              <h3>{logInStatus}</h3>
             </div>
           </div>
         </div>

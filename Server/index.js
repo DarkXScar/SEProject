@@ -36,7 +36,7 @@ app.post("/login", (req, res) => {
       if (result.length > 0) {
         res.send(result);
         ProfName = result[0].ProfessorName;
-      } else res.send({ message: "Wrong username/password combination!" });
+      } else res.send({ message: "Wrong username/password!" });
     }
   );
 });
@@ -163,12 +163,17 @@ setTimeout(() => {
     );
   });
 }, 2 * Timer);
+let studId = "";
+app.post("/findid", (req, res) => {
+  studId = req.body.id;
+});
 
 app.post("/attendanceindividual", (req, res) => {
   let data = req.body.data;
   console.log("Tu sam");
   db.query(
-    "SELECT Week1, Week2, Week3, Week4, Week5, Week6, Week7, Week8, Week9, Week10, Week11, Week12, Week13, Week14, Week15 FROM attrec WHERE StudentID = 190302020",
+    "SELECT Week1, Week2, Week3, Week4, Week5, Week6, Week7, Week8, Week9, Week10, Week11, Week12, Week13, Week14, Week15 FROM ?? WHERE StudentID = ?",
+    [courseCode, studId],
     (err, result) => {
       if (err) {
         console.log(err);
@@ -252,7 +257,7 @@ app.get("/allelse", (req, res) => {
 });
 
 app.post("/allstudents", (req, res) => {
-  const students = req.body.students;
+  let students = req.body.students;
 
   db.query("SELECT * FROM ??", [courseCode], (err, result) => {
     if (err) {

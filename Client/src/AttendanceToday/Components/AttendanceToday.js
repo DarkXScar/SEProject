@@ -30,7 +30,7 @@ const AttendanceToday = () => {
               {data.map((val, key) => {
                 return (
                   <tr key={key}>
-                    <td className="text-center">{val.name}</td>
+                    <td className="text-center">{val.StudentName}</td>
                     <td className="text-center">{val.attendanceStatus}</td>
                   </tr>
                 );

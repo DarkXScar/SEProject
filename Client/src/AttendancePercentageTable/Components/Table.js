@@ -18,13 +18,18 @@ function Table() {
       if (response) {
         console.log(response.data);
         setStudents(response.data);
-        //data = response.data;
-        //calcPercentage(data);
       } else {
         console.log("Error");
       }
     });
   }, []);
+
+  const sendID = (id) => {
+    console.log(id);
+    Axios.post("http://localhost:3001/findid", {
+      id: id,
+    });
+  };
 
   return (
     <div className="App">
@@ -55,8 +60,12 @@ function Table() {
                     <Link
                       to="../attendance-individual"
                       className="link-secondary"
+                      onClick={() => {
+                        console.log(val.StudentID);
+                        sendID(val.StudentID);
+                      }}
                     >
-                      <td className="text-center">{val.name}</td>
+                      <td className="text-center">{val.StudentName}</td>
                     </Link>
                     <td className="text-center">{val.percentageStatus}</td>
                   </tr>

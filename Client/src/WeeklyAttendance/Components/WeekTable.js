@@ -51,7 +51,7 @@ function WeekTable() {
                       return (
                         <tr key={key}>
                           <td className="text-center">{val.StudentName}</td>
-                          <td className="text-center">{val.eek1}</td>
+                          <td className="text-center">{val.Week1}</td>
                           <td className="text-center">{val.Week2}</td>
                           <td className="text-center">{val.Week3}</td>
                           <td className="text-center">{val.Week4}</td>
