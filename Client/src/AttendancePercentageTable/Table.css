@@ -23,9 +23,10 @@ tr:hover {
 }
 
 table {
-	width: 1000px;
+	min-width: 500px;
+	border: solid white;
 }
 th,
 td {
-	width: 500px;
+	min-width: 50px;
 }

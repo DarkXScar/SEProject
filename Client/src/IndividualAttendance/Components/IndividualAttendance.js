@@ -1,24 +1,33 @@
 import "../table-style.css";
 import NextPageBtn from "../../SharedComponents/NextPageBtn/NextPageBtn";
+import { Container, Row, Col } from "react-bootstrap";
 
 const IndividualAttendance = () => {
 	return (
 		<div className='App'>
 			<NextPageBtn next='/home' />
-			<table>
-				<tr className='bg-danger text-light'>
-					<th>Week</th>
-					<th>Attendance status</th>
-				</tr>
-				{data.map((val, key) => {
-					return (
-						<tr key={key}>
-							<td className='text-center'>{val.week}</td>
-							<td className='text-center'>{val.attendanceStatus}</td>
-						</tr>
-					);
-				})}
-			</table>
+			<Container>
+				<Row>
+					<Col>
+						<div className='w-100'>
+							<table>
+								<tr className='bg-danger text-light'>
+									<th>Week</th>
+									<th>Attendance status</th>
+								</tr>
+								{data.map((val, key) => {
+									return (
+										<tr key={key}>
+											<td className='text-center'>{val.week}</td>
+											<td className='text-center'>{val.attendanceStatus}</td>
+										</tr>
+									);
+								})}
+							</table>
+						</div>
+					</Col>
+				</Row>
+			</Container>
 		</div>
 	);
 };
