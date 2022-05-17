@@ -1,0 +1,8 @@
+table {
+	min-width: 100%;
+	border: solid white;
+}
+th,
+td {
+	min-width: 50px;
+}

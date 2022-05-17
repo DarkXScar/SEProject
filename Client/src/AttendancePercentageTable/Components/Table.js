@@ -1,36 +1,49 @@
 import "../Table.css";
 import NextPageBtn from "../../SharedComponents/NextPageBtn/NextPageBtn";
+import { Link } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
 function Table() {
 	return (
 		<div className='App'>
 			<NextPageBtn next='/home' />
-			<div>
-				<button
-					type='button'
-					className='fixed-top button btn btn-lg btn-danger'
-				>
-					Full table
-				</button>
+			<div className='center-button'>
+				<Link to='/attendance-all-weeks'>
+					<button
+						type='button'
+						className='fixed-top button btn btn-lg btn-danger'
+					>
+						Full table
+					</button>
+				</Link>
 			</div>
-			<div className='button-margin'>
-				<br></br>
-				<br></br>
-				<table>
-					<tr className='bg-danger text-light'>
-						<th>Name</th>
-						<th>%</th>
-					</tr>
-					{data.map((val, key) => {
-						return (
-							<tr key={key}>
-								<td>{val.name}</td>
-								<td>{val.percentageStatus}</td>
+			<Container>
+				<div className='button-margin'>
+					<table className='table'>
+						<thead>
+							<tr className='bg-danger text-light'>
+								<th scope='col'>Name</th>
+								<th scope='col'>%</th>
 							</tr>
-						);
-					})}
-				</table>
-			</div>
+						</thead>
+						<tbody>
+							{data.map((val, key) => {
+								return (
+									<tr key={key}>
+										<Link
+											to='../attendance-individual'
+											className='link-secondary'
+										>
+											<td className='text-center'>{val.name}</td>
+										</Link>
+										<td className='text-center'>{val.percentageStatus}</td>
+									</tr>
+								);
+							})}
+						</tbody>
+					</table>
+				</div>
+			</Container>
 		</div>
 	);
 }

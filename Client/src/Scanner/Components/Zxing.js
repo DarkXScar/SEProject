@@ -9,7 +9,7 @@ import useWindowDimensions from "./useWindowDimensions";
 //Components
 import PopUp from "./PopUp";
 
-const Zxing = ({ children }) => {
+const Zxing = () => {
 	//used to show notification
 	const [showToast, setShowToast] = useState(false);
 	//student ID which is scanned
@@ -48,7 +48,7 @@ const Zxing = ({ children }) => {
 			>
 				{id}
 			</PopUp>
-			<Container className='d-flex justify-content-center w-100 p-3'>
+			<Container className='d-flex justify-content-center w-100 p-2'>
 				<video ref={video} width={width} muted></video>
 			</Container>
 		</div>
