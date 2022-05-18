@@ -21,7 +21,9 @@ function WeekTable() {
 	});
 
 	const didAttend = (val) => {
-		return val ? "+" : "-";
+		if (val === null) return "";
+		else if (val) return "+";
+		else return "-";
 	};
 
 	return (

@@ -16,6 +16,13 @@ const IndividualAttendance = () => {
 			} else console.log("ERROR");
 		});
 	}, []);
+
+	const didAttend = (val) => {
+		if (val === null) return "";
+		else if (val) return "+";
+		else return "-";
+	};
+
 	return (
 		<div className='App'>
 			<NextPageBtn next='/home' />
@@ -33,7 +40,7 @@ const IndividualAttendance = () => {
 										<tr key={key}>
 											<td className='text-center'>{val.weekNumber}</td>
 											<td className='text-center'>
-												{val.attendanceStatus ? "+" : "-"}
+												{didAttend(val.attendanceStatus)}
 											</td>
 										</tr>
 									);
