@@ -37,3 +37,22 @@ td {
 	overflow: auto;
 	display: block;
 }
+
+.top-left {
+	position: fixed;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	margin-left: 10%;
+	margin-top: 10px;
+}
+
+.btn-fit {
+	width: fit-content;
+	padding: 0 10px;
+	font-size: 20px;
+}
+
+.spacing {
+	margin-top: 60px;
+}

@@ -30,3 +30,16 @@ th,
 td {
 	min-width: 50px;
 }
+
+.bad-attendance {
+	text-align: center;
+	color: red;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.good-attendance {
+	text-align: center;
+	color: green;
+	font-weight: bold;
+}

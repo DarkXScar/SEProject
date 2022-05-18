@@ -27,7 +27,7 @@ const PopUp = ({ show = false, onClose = () => {}, children, header }) => {
 					</svg>
 					<strong className='me-auto'>{header}</strong>
 				</ToastHeader>
-				<ToastBody>{children}</ToastBody>
+				<ToastBody className='text-center'>{children}</ToastBody>
 			</Toast>
 		</div>
 	);
