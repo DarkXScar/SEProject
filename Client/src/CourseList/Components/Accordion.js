@@ -9,6 +9,7 @@ const Accordion = () => {
   let [data, setCourses] = useState([{}]);
 
   const cont = (courseCode) => {
+    // Nedim's part
     console.log(courseCode);
     Axios.post("http://localhost:3001/courseName", {
       courseCode: courseCode,
@@ -36,6 +37,7 @@ const Accordion = () => {
   }, []);
 
   return (
+    // Mirza's part
     <div className="wrapper pt-5">
       <div className="accordion">
         {data.map((item, i) => (

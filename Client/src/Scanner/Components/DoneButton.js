@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "./scanner-style.css";
 
 const DoneButton = () => {
+  // Faruk's part
   const allElse = () => {
     Axios.get("http://localhost:3001/allelse");
   };

@@ -9,6 +9,7 @@ function WeekTable() {
   let [students, setStudents] = useState([{}]);
 
   useEffect(() => {
+    // Edin's part
     Axios.post("http://localhost:3001/allstudents", {
       students: students,
     }).then((response) => {
@@ -27,6 +28,7 @@ function WeekTable() {
   };
 
   return (
+    // Mirza's part
     <div>
       <div className="App">
         <BackButton />

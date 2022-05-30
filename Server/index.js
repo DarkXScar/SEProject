@@ -23,6 +23,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let ProfName = "";
+// Edin's part
 app.post("/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
@@ -40,7 +41,7 @@ app.post("/login", (req, res) => {
     }
   );
 });
-
+// Nedim's part
 app.post("/accordion", (req, res) => {
   let courses = req.body.courses;
 
@@ -144,7 +145,7 @@ const getName = (id, courseCode) => {
     }
   );
 };
-
+// Edin's part
 setTimeout(() => {
   app.post("/attendancetoday", (req, res) => {
     let data = req.body.data;
@@ -198,7 +199,7 @@ app.post("/attendanceindividual", (req, res) => {
 });
 
 let percentage = 0;
-
+// Nedim's part
 app.post("/allstudentsweek", (req, res) => {
   let students = req.body.students;
   let data = req.body.data;
@@ -249,7 +250,7 @@ const calc = (result, students) => {
   }
   return students;
 };
-
+// Edin's part
 app.get("/allelse", (req, res) => {
   console.log("evo me");
   db.query("UPDATE ?? SET ?? = '0' WHERE ?? IS NULL", [

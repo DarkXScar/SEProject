@@ -8,6 +8,7 @@ const AttendanceToday = () => {
   let [data, setData] = useState([{}]);
 
   useEffect(() => {
+    // Edin's part
     Axios.post("http://localhost:3001/attendancetoday", {
       data: data,
     }).then((response) => {
@@ -24,6 +25,7 @@ const AttendanceToday = () => {
   };
 
   return (
+    // Mirza's part
     <div className="App">
       <NextPageBtn next="/home" />
       <Container>
