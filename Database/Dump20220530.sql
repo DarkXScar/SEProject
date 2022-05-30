@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `projdata` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `projdata`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: localhost    Database: projdata
@@ -43,46 +41,6 @@ INSERT INTO `accdet` VALUES ('ali.a','quantumrocks','Ali Abd Almisreb'),('kanita
 UNLOCK TABLES;
 
 --
--- Table structure for table `attrec`
---
-
-DROP TABLE IF EXISTS `attrec`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `attrec` (
-  `StudentID` int NOT NULL,
-  `StudentName` varchar(255) DEFAULT NULL,
-  `Week1` tinyint(1) DEFAULT NULL,
-  `Week2` tinyint(1) DEFAULT NULL,
-  `Week3` tinyint(1) DEFAULT NULL,
-  `Week4` tinyint(1) DEFAULT NULL,
-  `Week5` tinyint(1) DEFAULT NULL,
-  `Week6` tinyint(1) DEFAULT NULL,
-  `Week7` tinyint(1) DEFAULT NULL,
-  `Week8` tinyint(1) DEFAULT NULL,
-  `Week9` tinyint(1) DEFAULT NULL,
-  `Week10` tinyint(1) DEFAULT NULL,
-  `Week11` tinyint(1) DEFAULT NULL,
-  `Week12` tinyint(1) DEFAULT NULL,
-  `Week13` tinyint(1) DEFAULT NULL,
-  `Week14` tinyint(1) DEFAULT NULL,
-  `Week15` tinyint(1) DEFAULT NULL,
-  KEY `StudentID` (`StudentID`),
-  CONSTRAINT `attrec_ibfk_1` FOREIGN KEY (`StudentID`) REFERENCES `students` (`StudentID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `attrec`
---
-
-LOCK TABLES `attrec` WRITE;
-/*!40000 ALTER TABLE `attrec` DISABLE KEYS */;
-INSERT INTO `attrec` VALUES (190302020,'Nedim Kunovac',1,1,0,0,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(190302086,'Faruk Imamovic',1,0,0,0,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(210300034,'John Doe',1,1,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(180302553,'Lejla Heganovic',1,1,0,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(190302033,'Mirza Redzepovic',1,1,1,1,1,1,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL);
-/*!40000 ALTER TABLE `attrec` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `courses`
 --
 
@@ -106,7 +64,7 @@ CREATE TABLE `courses` (
 
 LOCK TABLES `courses` WRITE;
 /*!40000 ALTER TABLE `courses` DISABLE KEYS */;
-INSERT INTO `courses` VALUES ('Kanita Hadziabdic','CS105','Advanced Programming','AF1.6'),('Tarik Namas','CS303','Digital Design','TBA'),('Kanita Hadziabdic','CS308','Software Engineering','BF1.23'),('Zeynep Sagir','CS310','Human Computer Interaction','BF2.14'),('Ali Abd Almisreb','CS428','Quantum Computing','AF1.11'),('Kanita Hadziabdic','EE418','Introduction to Machine Learning','AF1.6');
+INSERT INTO `courses` VALUES ('Kanita Hadziabdic','CS103','Introduction to Programming','AF1.33'),('Kanita Hadziabdic','CS105','Advanced Programming','AF1.6'),('Tarik Namas','CS303','Digital Design','TBA'),('Kanita Hadziabdic','CS305','Programming Languages','AF1.16'),('Kanita Hadziabdic','CS308','Software Engineering','BF1.23'),('Zeynep Sagir','CS310','Human Computer Interaction','BF2.14'),('Ali Abd Almisreb','CS428','Quantum Computing','AF1.11'),('Kanita Hadziabdic','EE418','Introduction to Machine Learning','AF1.6');
 /*!40000 ALTER TABLE `courses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +104,7 @@ CREATE TABLE `cs105` (
 
 LOCK TABLES `cs105` WRITE;
 /*!40000 ALTER TABLE `cs105` DISABLE KEYS */;
-INSERT INTO `cs105` VALUES ('Rijad Karihman',190302007,1,1,1,1,1,1,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL),('Will Smith',200302375,1,0,1,0,1,0,1,0,1,NULL,NULL,NULL,NULL,NULL,NULL),('Faruk Imamovic',190302086,1,0,0,0,1,1,1,1,1,1,NULL,NULL,NULL,NULL,NULL),('Edin Ziga',190302192,1,1,1,1,1,1,1,1,1,1,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `cs105` VALUES ('Rijad Karihman',190302007,1,1,1,1,1,1,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL),('Will Smith',200302375,1,0,1,0,1,0,1,0,1,NULL,NULL,NULL,NULL,NULL,NULL),('Faruk Imamovic',190302086,1,0,0,0,1,1,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL),('Edin Ziga',190302192,1,1,1,1,1,1,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `cs105` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +184,7 @@ CREATE TABLE `cs308` (
 
 LOCK TABLES `cs308` WRITE;
 /*!40000 ALTER TABLE `cs308` DISABLE KEYS */;
-INSERT INTO `cs308` VALUES ('Faruk Imamovic',190302086,1,0,0,0,1,1,1,1,1,0,NULL,NULL,NULL,NULL,NULL),('Edin Ziga',190302192,1,1,1,1,1,1,1,1,1,0,NULL,NULL,NULL,NULL,NULL),('Nedim Kunovac',190302020,1,0,0,0,0,0,0,0,0,1,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `cs308` VALUES ('Faruk Imamovic',190302086,1,0,0,0,1,1,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL),('Edin Ziga',190302192,1,1,1,1,1,1,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL),('Nedim Kunovac',190302020,1,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `cs308` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -311,28 +269,6 @@ INSERT INTO `cs428` VALUES ('John Doe',210300034,1,1,1,1,1,1,1,1,1,NULL,NULL,NUL
 UNLOCK TABLES;
 
 --
--- Table structure for table `studattrec`
---
-
-DROP TABLE IF EXISTS `studattrec`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `studattrec` (
-  `Week` varchar(255) DEFAULT NULL,
-  `Attended` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `studattrec`
---
-
-LOCK TABLES `studattrec` WRITE;
-/*!40000 ALTER TABLE `studattrec` DISABLE KEYS */;
-/*!40000 ALTER TABLE `studattrec` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `students`
 --
 
@@ -365,4 +301,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-17 22:03:29
+-- Dump completed on 2022-05-30  9:47:14
