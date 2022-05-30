@@ -10,6 +10,7 @@ import IndividualAttendance from "./IndividualAttendance/Components/IndividualAt
 import WeekTable from "./WeeklyAttendance/Components/WeekTable";
 
 function App() {
+  // Faruk's part
   return (
     <>
       <Router>
@@ -20,20 +21,20 @@ function App() {
 
           <Route path="/home" element={<Accordion />} />
 
-					<Route path='/attendance-table' element={<Table />} />
+          <Route path="/attendance-table" element={<Table />} />
 
-					<Route path='/attendance-today' element={<AttendanceToday />} />
+          <Route path="/attendance-today" element={<AttendanceToday />} />
 
-					<Route
-						path='/attendance-individual'
-						element={<IndividualAttendance />}
-					/>
+          <Route
+            path="/attendance-individual"
+            element={<IndividualAttendance />}
+          />
 
-					<Route path='/attendance-all-weeks' element={<WeekTable />} />
-				</Routes>
-			</Router>
-		</>
-	);
+          <Route path="/attendance-all-weeks" element={<WeekTable />} />
+        </Routes>
+      </Router>
+    </>
+  );
 }
 
 export default App;

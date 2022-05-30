@@ -10,27 +10,28 @@ import BackButton from "./Components/BackButton";
 import "./Components/scanner-style.css";
 
 const Scanner = () => {
-	return (
-		<>
-			<Container>
-				<Row>
-					<BackButton />
-					<Zxing />
-				</Row>
-				<Row>
-					<div className='d-flex'>
-						<div className='w-5 center-btn'>
-							<ManualAdd />
-						</div>
+  // Faruk's part
+  return (
+    <>
+      <Container>
+        <Row>
+          <BackButton />
+          <Zxing />
+        </Row>
+        <Row>
+          <div className="d-flex">
+            <div className="w-5 center-btn">
+              <ManualAdd />
+            </div>
 
-						<div className='w-5 right-btn'>
-							<DoneButton />
-						</div>
-					</div>
-				</Row>
-			</Container>
-		</>
-	);
+            <div className="w-5 right-btn">
+              <DoneButton />
+            </div>
+          </div>
+        </Row>
+      </Container>
+    </>
+  );
 };
 
 export default Scanner;
