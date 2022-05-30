@@ -1,23 +1,45 @@
 # How to use the project
 
-Go to desired folder and open the folder in command prompt or bash and run
-`git clone https://github.com/FarukIm/SEProject.git`
+Clone the project into desired directory by navigating to desired directory openning bash and running:
+
+```
+git clone https://github.com/FarukIm/SEProject.git
+```
 
 ## After download
 
-Run `npm install` in **both** Client and Server folders
+The database folder contains a file which is sample database we used for the project, personally we used mySQL workbench version 8.0.28 into which we imported the file from the database folder.
 
-### Later
+After importing the database to desired mySQL program, the user needs to configure username and password in **Server/index.js** lines **10** and **12**
 
-Run `git checkout branch_name` to got to your own branch.
-After everything is done `npm start` to run the project.
+### Server
 
-## Add files to .gitignore which you don't want to track like node_modules
+Once the above steps are completed you should navigate to the Server directory within your terminal and install all dependencies by running:
 
-### More basics
+```
+npm install
+```
 
-1.  `git fetch origin` get all branches and their changes
-2.  `git status` see how your local repo compares to other branches
-3.  `git add .` track all new files
-4.  `git commit -m "text"` commit your changes, good to do often so you can return to state of previous commits
-5.  `git push` this will push all your changes to git, only do once major things are done and working
+Once that is done, to run the server you use the command:
+
+```
+npm run devStart
+```
+
+If you followed the steps above the server should be up and running
+
+### Client
+
+Next, you should navigate to the Client directory within your terminal and install all dependencies by running:
+
+```
+npm install
+```
+
+Once that is done, to run the server you use the command:
+
+```
+npm start
+```
+
+If you followed the steps above the a window will shortly pop up navigating you to the login screen from which you can start using the application.
