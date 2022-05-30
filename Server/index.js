@@ -43,6 +43,7 @@ app.post("/login", (req, res) => {
 
 app.post("/accordion", (req, res) => {
   let courses = req.body.courses;
+
   setTimeout(() => {
     db.query(
       "SELECT * FROM courses WHERE CourseProfessor = ?",
